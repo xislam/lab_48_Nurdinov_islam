@@ -1,10 +1,43 @@
 [
 {
+  "model": "webapp.product",
+  "pk": 3,
+  "fields": {
+    "name": "islam",
+    "description": "asdv asdl adflbm adflva f",
+    "category": "other",
+    "amount": 2,
+    "price": "23334.00"
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 5,
+  "fields": {
+    "name": "gugyu",
+    "description": "gyugyuyg",
+    "category": "other",
+    "amount": 2,
+    "price": "232.00"
+  }
+},
+{
+  "model": "webapp.product",
+  "pk": 6,
+  "fields": {
+    "name": "aubvlkbvkhvl",
+    "description": "akjh hgkjjkm,'>\r\nllkhgdfhcvbjkl",
+    "category": "other",
+    "amount": 788,
+    "price": "9.00"
+  }
+},
+{
   "model": "auth.user",
   "pk": 1,
   "fields": {
     "password": "pbkdf2_sha256$150000$NkYGx7YLTJiA$sAo6Li54gXunIbC5nCuqM1PwhUk05a81uWRruZg27ms=",
-    "last_login": null,
+    "last_login": "2019-09-23T14:38:49.144Z",
     "is_superuser": true,
     "username": "admin",
     "first_name": "",

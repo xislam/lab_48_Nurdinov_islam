@@ -8,10 +8,10 @@
 
 {% endblock %}
 
-{% block title %}{{ product.title }}{% endblock %}
+{% block title %}{{ product.name }}{% endblock %}
 
 {% block content %}
-    <h1>Product:{{ product.get_name_display }}</h1>
-    <p>Описание:{{ product.text}} </p>
-    <p>Статус: {{ product.get_status_display }}</p>
+    <h1>Product:{{ product.name }}</h1>
+    <p>Описание:{{ product.description}} </p>
+    <p>Катигория: {{ product.category }}</p>
 {% endblock %}

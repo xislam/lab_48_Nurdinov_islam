@@ -4,10 +4,10 @@ from webapp.models import Product
 
 
 def index_view(request, *args, **kwargs):
-    product = Product.objects.filter(category='active').order_by('-creation_date')
+    products = Product.objects.exclude(amount=0).order_by('category', 'name')
     form = SeacrhForm()
     return render(request, 'index.html', context={
-        'product': product,
+        'products': products,
         'form': form
     })
 
@@ -80,8 +80,8 @@ def product_delete_view(request, pk):
 
 
 def product_seach(request):
-    name = request.GET.get('search')
-    product = Product.objects.filter(name__contains=name).filter(category='active')
+    product_name = request.GET.get('search')
+    products = Product.objects.filter(name__contains=product_name)
     return render(request, 'index.html', context={
-        'product': product
+        'products': products
     })
