@@ -2,18 +2,16 @@
 
 {% block menu %}
 
-   <li><a href="{% url 'guestbook_update' guestbook.pk %}">Edit</a></li>
+   <li><a href="{% url 'product_update' product.pk %}">Edit</a></li>
 
-   <li><a href="{% url 'guestbook_delete' guestbook.pk %}">Delete</a></li>
+   <li><a href="{% url 'product_delete' product.pk %}">Delete </a></li>
 
 {% endblock %}
 
-{% block title %}{{ guestbook.title }}{% endblock %}
+{% block title %}{{ product.title }}{% endblock %}
 
 {% block content %}
-    <h1>Guestbook:{{ guestbook.get_status_display }}</h1>
-    <p>Описание:{{ guestbook.taxt}} </p>
-    <p>Статус: {{ guestbook.get_status_display }}</p>
-    <div class="pre">{{ guestbook.text }}</div>
-    <div>{{ guestbook.date }}</div>
+    <h1>Product:{{ product.get_name_display }}</h1>
+    <p>Описание:{{ product.text}} </p>
+    <p>Статус: {{ product.get_status_display }}</p>
 {% endblock %}

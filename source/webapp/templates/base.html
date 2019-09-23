@@ -7,7 +7,7 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>{% block title %}Guestbook{% endblock %}</title>
+    <title>{% block title %}Product{% endblock %}</title>
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.11.1/css/all.css">
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 </head>
@@ -16,7 +16,7 @@
 <div class="container">
     <a class="navbar-brand" href="{% url 'index' %}">Home</a>
     {% block menu %}{% endblock %}
-    <form class="form-inline" action="{% url 'guestbook_seacrh'  %}">
+    <form class="form-inline" action="{% url 'product_seach'  %}">
         <input name="search" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
     </form>

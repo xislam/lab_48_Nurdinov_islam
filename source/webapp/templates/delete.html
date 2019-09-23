@@ -1,15 +1,15 @@
 {% extends "base.html" %}
 
-{% block title %}Delete Guestbook{% endblock %}
+{% block title %}Delete Product{% endblock %}
 
 {% block menu %}
 {% endblock %}
 
 {% block content %}
 
-    <h1>Are you sure want to delete task "{{ guestbook }}"?</h1>
+    <h1>Are you sure want to delete product "{{ product }}"?</h1>
 
-    <form method="POST" action="{% url "guestbook_delete" guestbook.pk %}" class="text-center">
+    <form method="POST" action="{% url "product_delete" product.pk %}" class="text-center">
 
         {% csrf_token %}
 

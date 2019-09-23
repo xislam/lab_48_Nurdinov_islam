@@ -1,20 +1,20 @@
-
 from django.shortcuts import render, get_object_or_404, redirect
-from webapp.forms import ProductForm
+from webapp.forms import *
 from webapp.models import Product
 
 
 def index_view(request, *args, **kwargs):
-
-    product = Product.objects.all()
+    product = Product.objects.filter(category='active').order_by('-creation_date')
+    form = SeacrhForm()
     return render(request, 'index.html', context={
-        'product': product
+        'product': product,
+        'form': form
     })
 
 
 def product_view(request, pk):
     product = get_object_or_404(Product, pk=pk)
-    return render(request, 'task.html', context={'product': product})
+    return render(request, 'product.html', context={'product': product})
 
 
 def product_create_view(request, *args, **kwargs):
@@ -30,13 +30,13 @@ def product_create_view(request, *args, **kwargs):
             product = Product.objects.create(
                 name=form.cleaned_data['name'],
                 description=form.cleaned_data['description'],
-                amount=form.cleaned_data['amount'],
+                category=form.cleaned_data['category'],
                 price=form.cleaned_data['price'],
-                category=form.cleaned_data['category']
+                amount=form.cleaned_data['amount']
 
             )
 
-            return redirect('task_view', pk=product.pk)
+            return redirect('product_view', pk=product.pk)
 
         else:
 
@@ -45,27 +45,28 @@ def product_create_view(request, *args, **kwargs):
 
 def product_update_view(request, pk):
     product = get_object_or_404(Product, pk=pk)
-    form = ProductForm(data=request.POST)
 
     if request.method == 'GET':
         form = ProductForm(data={
             'name': product.name,
             'description': product.description,
-            'amount': product.amount,
             'category': product.category,
-            'price': product.price
+            'price': product.price,
+            'amount': product.amount
+
         })
         return render(request, 'update.html', context={'product': product, 'form': form})
 
     elif request.method == 'POST':
         form = ProductForm(data=request.POST)
         if form.is_valid():
-            product.description = form.cleaned_data['description']
             product.name = form.cleaned_data['name']
+            product.description = form.cleaned_data['description']
             product.category = form.cleaned_data['category']
             product.price = form.cleaned_data['price']
+            product.amount = form.cleaned_data['amount']
             product.save()
-            return redirect('task_view', pk=product.pk)
+            return redirect('product_view', pk=product.pk)
 
 
 def product_delete_view(request, pk):
@@ -77,3 +78,10 @@ def product_delete_view(request, pk):
         product.delete()
         return redirect('index')
 
+
+def product_seach(request):
+    name = request.GET.get('search')
+    product = Product.objects.filter(name__contains=name).filter(category='active')
+    return render(request, 'index.html', context={
+        'product': product
+    })

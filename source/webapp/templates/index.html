@@ -1,20 +1,20 @@
 {% extends 'base.html' %}
 
 {% block menu %}
-<a class="navbar-brand" href="{% url 'guestbook_add' %}">Add GuestBook</a>
+<a class="navbar-brand" href="{% url 'product_add' %}">Add Product</a>
 
 {% endblock %}
 
 {% block content %}
-<h1>Guestbook:</h1>
+<h1>Product:</h1>
 <hr/>
-{% for guestbook in guestbooks %}
+{% for product in products %}
 <div class="card">
     <div class="card-body">
-        <h5 class="card-title" style="display:inline ">{{ guestbook.post_author_name }}({{ guestbook.email}})</h5>
-        <p style="display:inline "><a href="{% url 'guestbook_update' guestbook.pk %}"><i class="fas fa-file-signature"></i></a></p>
-        <p style="display:inline "><a href="{% url 'guestbook_delete' guestbook.pk %}"><i class="fas fa-trash"></i></a></p>
-        <p class="card-text">{{ guestbook.text }}</p>
+        <h5 class="card-title" style="display:inline ">{{ product.name }}</h5>
+        <p style="display:inline "><a href="{% url 'product_update' product.pk %}"><i class="fas fa-file-signature"></i></a></p>
+        <p style="display:inline "><a href="{% url 'product_delete' product.pk %}"><i class="fas fa-trash"></i></a></p>
+        <p class="card-text">{{ product.description }}</p>
     </div>
 </div>
 <h2></h2>
