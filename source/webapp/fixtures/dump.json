@@ -1,0 +1,20 @@
+[
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$NkYGx7YLTJiA$sAo6Li54gXunIbC5nCuqM1PwhUk05a81uWRruZg27ms=",
+    "last_login": null,
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "dsa@gmail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2019-09-23T10:42:25.435Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
