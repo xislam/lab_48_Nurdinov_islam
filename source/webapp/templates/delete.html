@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}Delete Guestbook{% endblock %}
+
+{% block menu %}
+{% endblock %}
+
+{% block content %}
+
+    <h1>Are you sure want to delete task "{{ guestbook }}"?</h1>
+
+    <form method="POST" action="{% url "guestbook_delete" guestbook.pk %}" class="text-center">
+
+        {% csrf_token %}
+
+        <p><input type="submit" value="Confirm"></p>
+
+        <p><a href="{% url "index" %}">Cancel</a></p>
+
+    </form>
+
+{% endblock %}

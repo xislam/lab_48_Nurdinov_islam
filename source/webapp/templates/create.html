@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+
+{% block title %}Create Guestbook{% endblock %}
+
+{% block content %}
+    <h1>Create Guestbook</h1>
+    <form method="POST" action="{% url 'guestbook_add' %}">
+ {% include 'partial/guestbook_form.html' with button_text='Create' %}
+    </form>
+{% endblock %}
