@@ -33,6 +33,17 @@
   }
 },
 {
+  "model": "webapp.product",
+  "pk": 7,
+  "fields": {
+    "name": "\u044b\u0432\u044b\u0432\u0430S",
+    "description": ", ;, ;l ;, ;l ;,",
+    "category": "food",
+    "amount": 0,
+    "price": "1.00"
+  }
+},
+{
   "model": "auth.user",
   "pk": 1,
   "fields": {
